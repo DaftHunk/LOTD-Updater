@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="Section" src="project://database/Assets/UI/Templates/Section.uxml?fileID=9197481963319205126&amp;guid=35bd2e92bb8834f4cbb0fe00450d9d9f&amp;type=3#Section" />
+    <ui:Foldout text="Dev Partie II : Graphisme et environnement" name="Page" binding-path="Pages" style="border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; color: rgb(255, 255, 255); -unity-font-style: bold; font-size: 20px;">
+        <ui:Instance template="Section" name="Section" />
+    </ui:Foldout>
+</ui:UXML>
