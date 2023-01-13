@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public enum Status
@@ -18,8 +19,19 @@ public enum ActionType
     Deleted
 }
 
+public enum InputType
+{
+    Main,
+    Secondary,
+    Comment
+}
+
 public static class GlobalValues
 {
+    public static TMP_InputField currentMainEditingInput;
+    public static TMP_InputField currentSecondaryEditingInput;
+    public static TMP_InputField currentCommentEditingInput;
+
     public static string StatusLabel(Status status) => status switch
     {
         Status.Todo => "Todo",

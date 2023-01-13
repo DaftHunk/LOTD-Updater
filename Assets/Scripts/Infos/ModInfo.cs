@@ -28,10 +28,17 @@ public class ModInfo : MonoBehaviour
 
     private void TMPToggle(bool isEnabled)
     {
-        Toolbox.TMPInputInteractionToggle(mainTitle, isEnabled);
-        Toolbox.TMPInputInteractionToggle(secondaryTitle, isEnabled);
-        Toolbox.TMPInputInteractionToggle(comment, isEnabled);
-    }
-
-    
+        Toolbox.TMPInputInteractionToggle(
+            mainTitle, 
+            isEnabled,
+            InputType.Main);
+        Toolbox.TMPInputInteractionToggle(
+            secondaryTitle, 
+            isEnabled,
+            InputType.Secondary);
+        Toolbox.TMPInputInteractionToggle(
+            comment, 
+            isEnabled,
+            InputType.Comment);
+    }    
 }

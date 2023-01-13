@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Numerics;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 
@@ -14,6 +17,13 @@ public class CategoryInfo : MonoBehaviour
     public void Start()
     {
         UpdateLabel();
+        Toolbox.TMPCaretInteractionToggle(mainTitle, false);
+        Toolbox.TMPCaretInteractionToggle(secondaryTitle, false);
+    }
+    
+    public void FixedUpdate()
+    {
+
     }
 
     private void UpdateLabel()
@@ -33,20 +43,24 @@ public class CategoryInfo : MonoBehaviour
 
     public void AddCategory()
     {
-        ModManager.InstanciateCategory(this);
+        ModManager.InstanciateCategory(
+            transform.parent);
     }
 
     public void ToggleEditMode()
     {
-        if (mainTitle.interactable)
-        {
-            mainTitle.interactable = false;
-            secondaryTitle.interactable = false;
-        }
-        else
-        {
-            mainTitle.interactable = true;
-            secondaryTitle.interactable = true;
-        }
+        TMPToggle(!mainTitle.interactable);
+    }
+
+    private void TMPToggle(bool isEnabled)
+    {
+        Toolbox.TMPInputInteractionToggle(
+            mainTitle, 
+            isEnabled,
+            InputType.Main);
+        Toolbox.TMPInputInteractionToggle(
+            secondaryTitle, 
+            isEnabled,
+            InputType.Secondary);
     }
 }

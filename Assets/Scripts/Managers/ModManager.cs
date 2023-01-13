@@ -14,13 +14,19 @@ public class ModManager : MonoBehaviour
     [SerializeField]
     private GameObject modPrefab;
 
+    [Header("StructurePrefabs")]
+    [SerializeField]
+    private GameObject pageStructurePrefab;
+    [SerializeField]
+    private GameObject categoryStructurePrefab;
+
     [Header("Infos")]
     [SerializeField]
-    private SortedSet<GameObject> pagesInfo = new SortedSet<GameObject>();
+    private static SortedSet<GameObject> pagesInfo = new SortedSet<GameObject>();
     [SerializeField]
-    private SortedSet<GameObject> categoriesInfo = new SortedSet<GameObject>();
+    private static SortedSet<GameObject> categoriesInfo = new SortedSet<GameObject>();
     [SerializeField]
-    private SortedSet<GameObject> modsInfo = new SortedSet<GameObject>();
+    private static SortedSet<GameObject> modsInfo = new SortedSet<GameObject>();
 
     [Header("Parents")]
     [SerializeField]
@@ -33,6 +39,8 @@ public class ModManager : MonoBehaviour
     private Transform doneParent;
     [SerializeField]
     private Transform archivedParent;
+    [SerializeField]
+    private Transform structureParent;
 
     
     #region Singleton
@@ -47,35 +55,58 @@ public class ModManager : MonoBehaviour
     {
         // Load mods
         // Setup interface
+    }
 
+    public static void InstanciatePage(Transform structureParent)
+    {
+        GameObject pageInfoPrefab = Instantiate(
+            Instance.pageStructurePrefab,
+            structureParent);
+
+        pagesInfo.Add(pageInfoPrefab);
     }
 
     public static void InstanciatePage(int status) {
-        GameObject pagePrefab = Instantiate(Instance.pagePrefab, StatusParent(status));
-        Instance.pagesInfo.Add(pagePrefab);
+        GameObject pageInfoPrefab = Instantiate(
+            Instance.pagePrefab, 
+            StatusParent(status));
 
-        PageInfo pageInfo = pagePrefab.GetComponent<PageInfo>();
+        pagesInfo.Add(pageInfoPrefab);
+
+        PageInfo pageInfo = pageInfoPrefab.GetComponent<PageInfo>();
         Page page = pageInfo.Page;
         page.Status = (Status)status;
-        pageInfo.Page = page;          
+        pageInfo.Page = page;
     }
 
-    public static void InstanciateCategory(CategoryInfo categoryInfo) {
-        GameObject category = Instantiate(Instance.categoryPrefab);
+    public static void InstanciatePage()
+    {
+        GameObject pageInfoPrefab = Instantiate(
+            Instance.pageStructurePrefab,
+            Instance.structureParent);
 
-        category.transform.SetParent(categoryInfo.transform.parent);
-
-        Instance.categoriesInfo.Add(category);
+        pagesInfo.Add(pageInfoPrefab);
     }
 
-    public static void InstanciateMod(TypeInfo typeInfo) {
-        GameObject modInfoPrefab = Instantiate(Instance.modPrefab);
+    public static void InstanciateCategory(Transform pageParent)
+    {
+        GameObject categoryInfoPrefab = Instantiate(
+            Instance.categoryStructurePrefab,
+            pageParent);
+
+        categoriesInfo.Add(categoryInfoPrefab);
+    }
+
+    public static void InstanciateMod(TypeInfo typeInfo) 
+    {
+        GameObject modInfoPrefab = Instantiate(
+            Instance.modPrefab,
+            typeInfo.transform);
 
         modInfoPrefab.GetComponent<ModInfo>()
             .Mod.ActionType = typeInfo.ActionType;
-        modInfoPrefab.transform.SetParent(typeInfo.transform);
 
-        Instance.modsInfo.Add(modInfoPrefab);
+        modsInfo.Add(modInfoPrefab);
     }
 
     public static Transform StatusParent(int status) => status switch

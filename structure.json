@@ -1,0 +1,51 @@
+{
+	"dataType" : "structure",
+	"content" : [
+	{
+		"mainTitle" : "Pre-Installation",
+		"secondaryTitle" : "Pré-installation",
+		"index" : 0,
+		"content" : [
+		{
+			"mainTitle" : "Tag Explanations",
+			"secondaryTitle" : "Légende",
+			"index" : 0
+		},{
+			"mainTitle" : "Mod Installation Advice",
+			"secondaryTitle" : "Informations sur l'installation des mods",
+			"index" : 1
+		}
+		]
+	},{
+		"mainTitle" : "Prerequisites",
+		"secondaryTitle" : "Prérequis",
+		"index" : 1,
+		"content" : [
+		{
+			"mainTitle" : "General Utilities",
+			"secondaryTitle" : "Les outils génériques",
+			"index" : 0
+		},{
+			"mainTitle" : "Official Bethesda Content",
+			"secondaryTitle" : "Contenu officiel de Bethesda",
+			"index" : 1
+		}
+		]
+	},{
+		"mainTitle" : "Mod Installation Page 1",
+		"secondaryTitle" : "Partie I : Correction et quête",
+		"index" : 2,
+		"content" : [
+		{
+			"mainTitle" : "Mod Installation Advice",
+			"secondaryTitle" : "Conseils",
+			"index" : 0
+		},{
+			"mainTitle" : "Optimized Texture Baseline",
+			"secondaryTitle" : "Optimisation des textures",
+			"index" : 1
+		}
+		]
+	}	
+	]
+}
