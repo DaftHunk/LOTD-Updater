@@ -8,7 +8,7 @@ public class ModManager : MonoBehaviour
 {
     [Header("Prefabs")]
     [SerializeField]
-    private GameObject pagePrefab;    
+    private GameObject pagePrefab;
     [SerializeField]
     private GameObject categoryPrefab;
     [SerializeField]
@@ -20,13 +20,9 @@ public class ModManager : MonoBehaviour
     [SerializeField]
     private GameObject categoryStructurePrefab;
 
-    [Header("Infos")]
-    [SerializeField]
-    private static SortedSet<GameObject> pagesInfo = new SortedSet<GameObject>();
-    [SerializeField]
-    private static SortedSet<GameObject> categoriesInfo = new SortedSet<GameObject>();
-    [SerializeField]
-    private static SortedSet<GameObject> modsInfo = new SortedSet<GameObject>();
+    private static readonly SortedSet<GameObject> pagesInfo = new SortedSet<GameObject>();
+    private static readonly SortedSet<GameObject> categoriesInfo = new SortedSet<GameObject>();
+    private static readonly SortedSet<GameObject> modsInfo = new SortedSet<GameObject>();
 
     [Header("Parents")]
     [SerializeField]
@@ -42,20 +38,13 @@ public class ModManager : MonoBehaviour
     [SerializeField]
     private Transform structureParent;
 
-    
     #region Singleton
     public static ModManager Instance;
-    private void Awake(){
+    private void Awake()
+    {
         Instance = this;
     }
     #endregion
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Load mods
-        // Setup interface
-    }
 
     public static void InstanciatePage(Transform structureParent)
     {
@@ -66,9 +55,10 @@ public class ModManager : MonoBehaviour
         pagesInfo.Add(pageInfoPrefab);
     }
 
-    public static void InstanciatePage(int status) {
+    public static void InstanciatePage(int status)
+    {
         GameObject pageInfoPrefab = Instantiate(
-            Instance.pagePrefab, 
+            Instance.pagePrefab,
             StatusParent(status));
 
         pagesInfo.Add(pageInfoPrefab);
@@ -97,7 +87,7 @@ public class ModManager : MonoBehaviour
         categoriesInfo.Add(categoryInfoPrefab);
     }
 
-    public static void InstanciateMod(TypeInfo typeInfo) 
+    public static void InstanciateMod(TypeInfo typeInfo)
     {
         GameObject modInfoPrefab = Instantiate(
             Instance.modPrefab,

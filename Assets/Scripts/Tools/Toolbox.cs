@@ -6,7 +6,7 @@ using UnityEngine;
 
 public static class Toolbox
 {
-    private static Color disabledColor = new(0,0,0,0);
+    private static Color disabledColor = new(0, 0, 0, 0);
     private static Color enabledColor = new(0, 0, 0, 40);
 
     public static void TMPCaretInteractionToggle(TMP_InputField inputField, bool isEnabled)
@@ -24,10 +24,10 @@ public static class Toolbox
         inputField.textComponent.raycastTarget = isEnabled;
         inputField.placeholder.raycastTarget = isEnabled;
         TMPCaretInteractionToggle(inputField, isEnabled);
-        inputField.targetGraphic.color = isEnabled 
+        inputField.targetGraphic.color = isEnabled
             ? enabledColor
             : disabledColor;
-            
+
         if (!isEnabled)
             return;
 
@@ -51,7 +51,7 @@ public static class Toolbox
 
     private static void ResetCurrentInputs()
     {
-        foreach(InputType type in Enum.GetValues(typeof(InputType)))
+        foreach (InputType type in Enum.GetValues(typeof(InputType)))
         {
             TMP_InputField currentEditingInput = null;
             switch (type)
@@ -75,7 +75,5 @@ public static class Toolbox
                 currentEditingInput,
                 false);
         }
-
-        
     }
 }

@@ -6,16 +6,19 @@ using UnityEngine;
 public class Page
 {
     [SerializeField]
-    private string nameVO;
+    private string mainTitle;
     [SerializeField]
-    private string nameVF;
+    private string secondaryTitle;
     [SerializeField]
-    private int order;
+    private int index;
+    [SerializeField]
+    private List<Category> content = new List<Category>();
     [SerializeField]
     private Status status;
 
-    public string NameVO { get => nameVO; set => nameVO = value; }
-    public string NameVF { get => nameVF; set => nameVF = value; }
-    public int Order { get => order; set => order = value; }
+    public string MainTitle { get => mainTitle; set => mainTitle = value; }
+    public string SecondaryTitle { get => secondaryTitle; set => secondaryTitle = value; }
+    public int Index { get => index; set => index = value; }
+    public List<Category> Content { get => content; set => content = value; }
     public Status Status { get => status; set => status = value; }
 }

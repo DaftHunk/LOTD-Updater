@@ -2312,13 +2312,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e78ac1ce5ccd98f438a372edc92462e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainTitle: {fileID: 7691854034020273577}
-  secondaryTitle: {fileID: 2606554306195015843}
+  MainTitle: {fileID: 0}
+  SecondaryTitle: {fileID: 0}
   page:
-    nameVO: 
-    nameVF: 
-    order: 0
+    mainTitle: 
+    secondaryTitle: 
+    index: 0
+    content: []
     status: 0
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &8234210228669148980
 GameObject:
   m_ObjectHideFlags: 0

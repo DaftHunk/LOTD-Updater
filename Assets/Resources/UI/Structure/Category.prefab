@@ -2062,17 +2062,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a810257439f75241a86ddc7727ef9d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainTitle: {fileID: 5913734238413937170}
-  secondaryTitle: {fileID: 5913734238979672023}
+  MainTitle: {fileID: 0}
+  SecondaryTitle: {fileID: 0}
   category:
-    nameVO: 
-    nameVF: 
-    order: 0
+    mainTitle: 
+    secondaryTitle: 
+    index: 0
     page:
-      nameVO: 
-      nameVF: 
-      order: 0
-      status: 0
+      rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &5913734239213653230
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,8 +8,8 @@ using UnityEngine;
 
 public class CategoryInfo : MonoBehaviour
 {
-    public TMP_InputField mainTitle;
-    public TMP_InputField secondaryTitle;
+    public TMP_InputField MainTitle;
+    public TMP_InputField SecondaryTitle;
 
     [SerializeField]
     private Category category = new Category();
@@ -17,13 +17,8 @@ public class CategoryInfo : MonoBehaviour
     public void Start()
     {
         UpdateLabel();
-        Toolbox.TMPCaretInteractionToggle(mainTitle, false);
-        Toolbox.TMPCaretInteractionToggle(secondaryTitle, false);
-    }
-    
-    public void FixedUpdate()
-    {
-
+        Toolbox.TMPCaretInteractionToggle(MainTitle, false);
+        Toolbox.TMPCaretInteractionToggle(SecondaryTitle, false);
     }
 
     private void UpdateLabel()
@@ -31,12 +26,12 @@ public class CategoryInfo : MonoBehaviour
         Transform panelTitle = transform.Find("PanelTitle");
         TMP_Text title = panelTitle.gameObject.GetComponentInChildren<TMP_Text>();
 
-        if (category.NameVF == ""
+        if (category.SecondaryTitle == ""
             || panelTitle == null
             || title == null)
             return;
 
-        title.text = category.NameVF;
+        title.text = category.SecondaryTitle;
     }
 
     public Category Category { get => category; set => category = value; }
@@ -49,17 +44,17 @@ public class CategoryInfo : MonoBehaviour
 
     public void ToggleEditMode()
     {
-        TMPToggle(!mainTitle.interactable);
+        TMPToggle(!MainTitle.interactable);
     }
 
     private void TMPToggle(bool isEnabled)
     {
         Toolbox.TMPInputInteractionToggle(
-            mainTitle, 
+            MainTitle,
             isEnabled,
             InputType.Main);
         Toolbox.TMPInputInteractionToggle(
-            secondaryTitle, 
+            SecondaryTitle,
             isEnabled,
             InputType.Secondary);
     }

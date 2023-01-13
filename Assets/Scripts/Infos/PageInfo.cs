@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PageInfo : MonoBehaviour
 {
-    public TMP_InputField mainTitle;
-    public TMP_InputField secondaryTitle;
+    public TMP_InputField MainTitle;
+    public TMP_InputField SecondaryTitle;
 
     [SerializeField]
     private Page page = new Page();
@@ -21,23 +21,23 @@ public class PageInfo : MonoBehaviour
 
     private void Start()
     {
-        Toolbox.TMPCaretInteractionToggle(mainTitle, false);
-        Toolbox.TMPCaretInteractionToggle(secondaryTitle, false);
+        Toolbox.TMPCaretInteractionToggle(MainTitle, false);
+        Toolbox.TMPCaretInteractionToggle(SecondaryTitle, false);
     }
 
     public void ToggleEditMode()
     {
-        TMPToggle(!mainTitle.interactable);
+        TMPToggle(!MainTitle.interactable);
     }
 
     private void TMPToggle(bool isEnabled)
     {
         Toolbox.TMPInputInteractionToggle(
-            mainTitle, 
+            MainTitle,
             isEnabled,
             InputType.Main);
         Toolbox.TMPInputInteractionToggle(
-            secondaryTitle, 
+            SecondaryTitle,
             isEnabled,
             InputType.Secondary);
     }

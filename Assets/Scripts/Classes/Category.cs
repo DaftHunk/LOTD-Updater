@@ -7,16 +7,17 @@ using UnityEngine;
 public class Category
 {
     [SerializeField]
-    private string nameVO;
+    private string mainTitle;
     [SerializeField]
-    private string nameVF;
+    private string secondaryTitle;
     [SerializeField]
-    private int order;
-    [SerializeField]
+    private int index;
+    // We use a SerializeReference to avoid circular reference
+    [SerializeReference]
     private Page page;
 
-    public string NameVO { get => nameVO; set => nameVO = value; }
-    public string NameVF { get => nameVF; set => nameVF = value; }
-    public int Order { get => order; set => order = value; }
-    public Page Page { get => page; set => page = value; }    
+    public string MainTitle { get => mainTitle; set => mainTitle = value; }
+    public string SecondaryTitle { get => secondaryTitle; set => secondaryTitle = value; }
+    public int Index { get => index; set => index = value; }
+    public Page Page { get => page; set => page = value; }
 }
