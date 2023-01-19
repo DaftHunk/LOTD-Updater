@@ -23,6 +23,6 @@ public class TypeInfo : MonoBehaviour
 
     public void AddMod()
     {
-        ModManager.InstanciateMod(this);
+        ModManager.Instance.InstanciateMod(this);
     }
 }

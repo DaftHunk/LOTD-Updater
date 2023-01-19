@@ -28,9 +28,12 @@ public enum InputType
 
 public static class GlobalValues
 {
-    public static TMP_InputField currentMainEditingInput;
-    public static TMP_InputField currentSecondaryEditingInput;
-    public static TMP_InputField currentCommentEditingInput;
+    public static TMP_InputField currentMainEditingInput = null;
+    public static TMP_InputField currentSecondaryEditingInput = null;
+    public static TMP_InputField currentCommentEditingInput = null;
+
+    public const string JSON_PATH = "JSON";
+    public const string JSON_NAME = "structure.json";
 
     public static string StatusLabel(Status status) => status switch
     {
@@ -48,5 +51,5 @@ public static class GlobalValues
         ActionType.Moved => "Déplacé",
         ActionType.Deleted => "Supprimé",
         _ => ""
-    };    
+    };
 }

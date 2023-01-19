@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5913734237909434573}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5913734239091368049}
+        m_TargetAssemblyTypeName: CategoryInfo, Assembly-CSharp
+        m_MethodName: OrderCategory
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5913734237937117088
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,7 +358,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5913734238179127487}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5913734239091368049}
+        m_TargetAssemblyTypeName: CategoryInfo, Assembly-CSharp
+        m_MethodName: OrderCategory
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &5913734238268900017
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5913734238268900018
 RectTransform:
   m_ObjectHideFlags: 0
@@ -381,10 +405,10 @@ RectTransform:
   m_Father: {fileID: 5913734238847850815}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 11, y: -11.345011}
+  m_SizeDelta: {x: 22, y: 22.690022}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5913734238268899917
 CanvasRenderer:
@@ -471,14 +495,14 @@ MonoBehaviour:
       - m_Target: {fileID: 5913734239091368049}
         m_TargetAssemblyTypeName: CategoryInfo, Assembly-CSharp
         m_MethodName: AddCategory
-        m_Mode: 1
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &5913734238331860661
 GameObject:
@@ -733,7 +757,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5913734238363985045}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5913734239091368049}
+        m_TargetAssemblyTypeName: CategoryInfo, Assembly-CSharp
+        m_MethodName: DeleteCategory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Deleting category
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5913734238413937174
 GameObject:
   m_ObjectHideFlags: 0
@@ -2062,8 +2098,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a810257439f75241a86ddc7727ef9d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainTitle: {fileID: 0}
-  SecondaryTitle: {fileID: 0}
+  MainTitle: {fileID: 5913734238413937170}
+  SecondaryTitle: {fileID: 5913734238979672023}
+  OrderUp: {fileID: 5913734238179127486}
+  OrderDown: {fileID: 5913734237909434572}
+  PageInfo: {fileID: 0}
   category:
     mainTitle: 
     secondaryTitle: 

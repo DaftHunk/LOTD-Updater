@@ -32,7 +32,7 @@
 		}
 		]
 	},{
-		"mainTitle" : "Mod Installation Page 1",
+		"mainTitle" : "Mod Installation - Part 1",
 		"secondaryTitle" : "Partie I : Correction et quête",
 		"index" : 2,
 		"content" : [
@@ -46,6 +46,46 @@
 			"index" : 1
 		}
 		]
-	}	
+	},{
+		"mainTitle" : "Mod Installation - Part 2",
+		"secondaryTitle" : "Partie I : Correction et quête",
+		"index" : 3,
+		"content" : []
+	},{
+		"mainTitle" : "Mod Installation - Part 3",
+		"secondaryTitle" : "Partie II : Graphisme et environnement",
+		"index" : 4,
+		"content" : []
+	},{
+		"mainTitle" : "Mod Installation - Part 4",
+		"secondaryTitle" : "Partie III : Ville et créature",
+		"index" : 5,
+		"content" : []
+    },{
+		"mainTitle" : "Mod Installation - Part 5",
+		"secondaryTitle" : "Partie IV : PNJ et compagnon",
+		"index" : 6,
+		"content" : []
+	},{
+		"mainTitle" : "Mod Installation - Part 6",
+		"secondaryTitle" : "Partie V : Vêtement et équipement",
+		"index" : 7,
+		"content" : []
+	},{
+		"mainTitle" : "Merge Page",
+		"secondaryTitle" : "Fusions",
+		"index" : 8,
+		"content" : []
+	},{
+		"mainTitle" : "The Finishing Line",
+		"secondaryTitle" : "Ligne d'arrivée",
+		"index" : 9,
+		"content" : []
+	},{
+		"mainTitle" : "MCM Setup",
+		"secondaryTitle" : "Menu de Configuration des Mods",
+		"index" : 10,
+		"content" : []
+	}
 	]
 }

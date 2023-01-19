@@ -31,8 +31,6 @@ public static class Toolbox
         if (!isEnabled)
             return;
 
-        ResetCurrentInputs();
-
         switch (inputType)
         {
             case InputType.Main:
@@ -49,7 +47,7 @@ public static class Toolbox
         }
     }
 
-    private static void ResetCurrentInputs()
+    public static void ResetCurrentInputs()
     {
         foreach (InputType type in Enum.GetValues(typeof(InputType)))
         {
@@ -73,7 +71,8 @@ public static class Toolbox
 
             TMPInputInteractionToggle(
                 currentEditingInput,
-                false);
+                false,
+                type);
         }
     }
 }

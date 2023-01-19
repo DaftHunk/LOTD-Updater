@@ -5,15 +5,18 @@ using UnityEngine;
 
 public class JsonManager : MonoBehaviour
 {
-    private const string JSON_PATH = "JSON";
-    private const string JSON_NAME = "structure.json";
-
-    public TextAsset DefaultData;
-    public Structure Structure;
+    public StructureManager StructureManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        StructureManager = GetComponent<StructureManager>();
+
+        if (StructureManager == null)
+        {
+            Debug.LogWarning("No StructureManager found on " + gameObject.name);
+            return;
+        }
         LoadStructureFromJSON();
     }
 
@@ -21,29 +24,17 @@ public class JsonManager : MonoBehaviour
     {
         string filePath = System.IO.Path.Combine(
             Application.persistentDataPath,
-            JSON_NAME);
+            GlobalValues.JSON_NAME);
 
         if (!System.IO.File.Exists(filePath))
         {
-            DefaultData = Resources.Load<TextAsset>(System.IO.Path.Combine(
-                JSON_PATH,
+            TextAsset defaultData = Resources.Load<TextAsset>(System.IO.Path.Combine(
+                GlobalValues.JSON_PATH,
                 "structure"));
-            byte[] data = DefaultData.bytes;
+            byte[] data = defaultData.bytes;
             System.IO.File.WriteAllBytes(filePath, data);
         }
         string structureData = System.IO.File.ReadAllText(filePath);
-        Structure = JsonUtility.FromJson<Structure>(structureData);
+        StructureManager.StructureInitiator(JsonUtility.FromJson<Structure>(structureData));
     }
-}
-
-[Serializable]
-public class Structure
-{
-    [SerializeField]
-    private string dataType;
-    [SerializeField]
-    private List<Page> content;
-
-    public string DataType { get => dataType; set => dataType = value; }
-    public List<Page> Content { get => content; set => content = value; }
 }
