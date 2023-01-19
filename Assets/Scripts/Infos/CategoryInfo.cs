@@ -72,7 +72,7 @@ public class CategoryInfo : MonoBehaviour
 
     public void DeleteCategory()
     {
-        Destroy(this.gameObject);
+        PageInfo.RemoveCategory(this);
     }
 
     public void ToggleEditMode()

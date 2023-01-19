@@ -20,7 +20,7 @@ public class JsonManager : MonoBehaviour
         LoadStructureFromJSON();
     }
 
-    private void LoadStructureFromJSON()
+    public void LoadStructureFromJSON()
     {
         string filePath = System.IO.Path.Combine(
             Application.persistentDataPath,
@@ -36,5 +36,22 @@ public class JsonManager : MonoBehaviour
         }
         string structureData = System.IO.File.ReadAllText(filePath);
         StructureManager.StructureInitiator(JsonUtility.FromJson<Structure>(structureData));
+    }
+
+    public void SaveStructureToJSON()
+    {
+        string filePath = System.IO.Path.Combine(
+            Application.persistentDataPath,
+            GlobalValues.JSON_NAME);
+
+        if (System.IO.File.Exists(filePath))
+        {
+            string structureData = JsonUtility.ToJson(StructureManager.Instance.Structure);
+            System.IO.File.WriteAllText(filePath, structureData);
+        }
+        else
+        {
+            Debug.LogWarning("Error while saving structure.json");
+        }
     }
 }

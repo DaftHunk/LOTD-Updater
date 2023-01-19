@@ -46,7 +46,7 @@ public class StructureManager : MonoBehaviour
         return pagePrefab;
     }
 
-    public GameObject InstanciateCategory(PageInfo pageInfo, Category category = null)
+    public CategoryInfo InstanciateCategory(PageInfo pageInfo, Category category = null)
     {
         GameObject categoryPrefab = Instantiate(CategoryPrefab, pageInfo.ContentParent);
         CategoryInfo categoryInfo = categoryPrefab.GetComponent<CategoryInfo>();
@@ -62,6 +62,7 @@ public class StructureManager : MonoBehaviour
         {
             categoryInfo.Initiate(category);
         }
-        return categoryPrefab;
+        pageInfo.CategoriesInfo.Add(categoryInfo);
+        return categoryInfo;
     }
 }
