@@ -2146,14 +2146,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e83977a3162bc5040aa060f39610fd5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pagePrefab: {fileID: 9142341543476000022, guid: ce47672fead8ab948a7c18c90db7a0ab, type: 3}
-  categoryPrefab: {fileID: 9142341543476000022, guid: b407f1d3a64ba5541be16be6ed1e669c, type: 3}
-  modPrefab: {fileID: 7189993735121819389, guid: fd5e154f9dacc774a8764d098c1424d2, type: 3}
+  PagePrefab: {fileID: 9142341543476000022, guid: ce47672fead8ab948a7c18c90db7a0ab, type: 3}
+  CategoryPrefab: {fileID: 9142341543476000022, guid: b407f1d3a64ba5541be16be6ed1e669c, type: 3}
+  ModPrefab: {fileID: 7189993735121819389, guid: fd5e154f9dacc774a8764d098c1424d2, type: 3}
   pageStructurePrefab: {fileID: 7496967124852637122, guid: 395f524f4778d7242951787a8b29dbb8, type: 3}
   categoryStructurePrefab: {fileID: 5913734239091368055, guid: 49fd2849f51cd4b4caa6a14e6dbbdcfd, type: 3}
-  pagesInfo: []
-  categoriesInfo: []
-  modsInfo: []
+  PagesInfo: []
   todoParent: {fileID: 739824310}
   doingParent: {fileID: 362100882}
   testingParent: {fileID: 594479792}
@@ -2187,7 +2185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d82edce41ca2a841bca5941ed77a56e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StructureManager: {fileID: 0}
 --- !u!114 &1666573189
 MonoBehaviour:
   m_ObjectHideFlags: 0

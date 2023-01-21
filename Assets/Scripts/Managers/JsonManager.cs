@@ -5,18 +5,9 @@ using UnityEngine;
 
 public class JsonManager : MonoBehaviour
 {
-    public StructureManager StructureManager;
-
     // Start is called before the first frame update
     void Start()
     {
-        StructureManager = GetComponent<StructureManager>();
-
-        if (StructureManager == null)
-        {
-            Debug.LogWarning("No StructureManager found on " + gameObject.name);
-            return;
-        }
         LoadStructureFromJSON();
     }
 
@@ -35,7 +26,7 @@ public class JsonManager : MonoBehaviour
             System.IO.File.WriteAllBytes(filePath, data);
         }
         string structureData = System.IO.File.ReadAllText(filePath);
-        StructureManager.StructureInitiator(JsonUtility.FromJson<Structure>(structureData));
+        StructureManager.Instance.StructureInitiator(JsonUtility.FromJson<Structure>(structureData));
     }
 
     public void SaveStructureToJSON()
@@ -46,7 +37,8 @@ public class JsonManager : MonoBehaviour
 
         if (System.IO.File.Exists(filePath))
         {
-            string structureData = JsonUtility.ToJson(StructureManager.Instance.Structure);
+            string structureData = JsonUtility
+                .ToJson(StructureManager.Instance.Structure, true);
             System.IO.File.WriteAllText(filePath, structureData);
         }
         else

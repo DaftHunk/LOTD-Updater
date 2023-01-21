@@ -8,22 +8,11 @@ using UnityEngine;
 public class ModManager : MonoBehaviour
 {
     [Header("Prefabs")]
-    [SerializeField]
-    private GameObject pagePrefab;
-    [SerializeField]
-    private GameObject categoryPrefab;
-    [SerializeField]
-    private GameObject modPrefab;
+    public GameObject PagePrefab;
+    public GameObject CategoryPrefab;
+    public GameObject ModPrefab;
 
-    [Header("StructurePrefabs")]
-    [SerializeField]
-    private GameObject pageStructurePrefab;
-    [SerializeField]
-    private GameObject categoryStructurePrefab;
-
-    public List<GameObject> pagesInfo = new List<GameObject>();
-    public List<GameObject> categoriesInfo = new List<GameObject>();
-    public List<GameObject> modsInfo = new List<GameObject>();
+    public List<PageInfo> PagesInfo = new List<PageInfo>();
 
     [Header("Parents")]
     [SerializeField]
@@ -57,17 +46,19 @@ public class ModManager : MonoBehaviour
 
     public void InstanciatePage(Page page)
     {
-        for (int i = 0; i < 4; i++)
+        foreach (Status status in Enum.GetValues(typeof(Status)))
         {
-            GameObject pageInfoPrefab = Instantiate(
-                Instance.pagePrefab,
-                StatusParent(i));
+            if (status == Status.Archived)
+                continue;
 
-            pagesInfo.Add(pageInfoPrefab);
-            page.Status = (Status)i;
+            GameObject pageInfoPrefab = Instantiate(
+               Instance.PagePrefab,
+               StatusParent((int)status));
 
             PageInfo pageInfo = pageInfoPrefab.GetComponent<PageInfo>();
             pageInfo.Initiate(page);
+            pageInfo.Status = status;
+            PagesInfo.Add(pageInfo);
 
             foreach (Category category in page.Content.OrderBy(x => x.Index))
             {
@@ -81,26 +72,30 @@ public class ModManager : MonoBehaviour
     public void InstanciateCategory(Category category, PageInfo pageInfo)
     {
         GameObject categoryInfoPrefab = Instantiate(
-            categoryPrefab,
+            CategoryPrefab,
             pageInfo.ContentParent);
 
         CategoryInfo categoryInfo = categoryInfoPrefab.GetComponent<CategoryInfo>();
         categoryInfo.PageInfo = pageInfo;
         categoryInfo.Initiate(category);
+        pageInfo.CategoriesInfo.Add(categoryInfo);
 
-        categoriesInfo.Add(categoryInfoPrefab);
+        foreach (Mod mod in category.Content
+            .Where(x => x.Status == pageInfo.Status))
+        {
+            InstanciateMod(categoryInfo, mod);
+        }
     }
 
-    public void InstanciateMod(TypeInfo typeInfo)
+    public void InstanciateMod(CategoryInfo categoryInfo, Mod mod)
     {
         GameObject modInfoPrefab = Instantiate(
-            Instance.modPrefab,
-            typeInfo.transform);
+            Instance.ModPrefab,
+            categoryInfo.GetModTypeParent(mod.ActionType));
 
-        modInfoPrefab.GetComponent<ModInfo>()
-            .Mod.ActionType = typeInfo.ActionType;
-
-        modsInfo.Add(modInfoPrefab);
+        ModInfo modInfo = modInfoPrefab.GetComponent<ModInfo>();
+        modInfo.Initiate(mod, categoryInfo);
+        categoryInfo.ModsInfo.Add(modInfo);
     }
 
     public Transform StatusParent(int status) => status switch

@@ -2103,12 +2103,15 @@ MonoBehaviour:
   OrderUp: {fileID: 5913734238179127486}
   OrderDown: {fileID: 5913734237909434572}
   PageInfo: {fileID: 0}
+  TypeInfos: []
+  Content: []
   category:
     mainTitle: 
     secondaryTitle: 
     index: 0
     page:
       rid: -2
+    content: []
   references:
     version: 2
     RefIds:

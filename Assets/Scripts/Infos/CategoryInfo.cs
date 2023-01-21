@@ -12,14 +12,17 @@ public class CategoryInfo : MonoBehaviour
     public TMP_InputField MainTitle;
     public TMP_InputField SecondaryTitle;
 
+
     public Button OrderUp;
     public Button OrderDown;
 
     public PageInfo PageInfo;
 
+    public List<TypeInfo> TypeInfos = new List<TypeInfo>();
+    public List<ModInfo> ModsInfo = new List<ModInfo>();
+
     [SerializeField]
     private Category category = new Category();
-
     public Category Category { get => category; set => category = value; }
 
     public void Initiate(Category category, bool isNew = false)
@@ -97,5 +100,29 @@ public class CategoryInfo : MonoBehaviour
             SecondaryTitle,
             isEnabled,
             InputType.Secondary);
+    }
+
+    public void AddMod(TypeInfo typeInfo)
+    {
+        Mod mod = new Mod
+        {
+            ActionType = typeInfo.ActionType,
+            Category = Category,
+            Status = PageInfo.Status,
+            Order = 0
+        };
+        GameObject modInfoPrefab = Instantiate(
+            ModManager.Instance.ModPrefab,
+            typeInfo.ContentParent);
+
+        ModInfo modInfo = modInfoPrefab.GetComponent<ModInfo>();
+        modInfo.Initiate(mod, this);
+        ModsInfo.Add(modInfo);
+        Category.Content.Add(mod);
+    }
+
+    public Transform GetModTypeParent(ActionType type)
+    {
+        return TypeInfos.Find(x => x.ActionType == type).ContentParent;
     }
 }

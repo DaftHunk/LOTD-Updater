@@ -13,6 +13,8 @@ public class PageInfo : MonoBehaviour
     public Transform ContentParent;
     public List<CategoryInfo> CategoriesInfo = new List<CategoryInfo>();
 
+    public Status Status;
+
     [SerializeField]
     private Page page = new Page();
 

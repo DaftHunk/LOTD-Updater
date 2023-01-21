@@ -912,7 +912,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 886446340462612536}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -7615369811100608242}
+        m_TargetAssemblyTypeName: ModInfo, Assembly-CSharp
+        m_MethodName: ChangeType
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &3545998188894106942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1585,7 +1597,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 6080022712512629968}
   m_OnClick:
     m_PersistentCalls:
@@ -1763,7 +1775,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1520165895385901198}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -7615369811100608242}
+        m_TargetAssemblyTypeName: ModInfo, Assembly-CSharp
+        m_MethodName: ChangeType
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6271573504780685512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1884,7 +1908,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1424692028326997293}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -7615369811100608242}
+        m_TargetAssemblyTypeName: ModInfo, Assembly-CSharp
+        m_MethodName: ChangeStatus
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &6981293134657342827
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,19 +2199,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainTitle: {fileID: 1370781439662512229}
   SecondaryTitle: {fileID: 5180131223109106266}
-  Comment: {fileID: 5706784440738272195}
+  Description: {fileID: 5706784440738272195}
+  CategoryInfo: {fileID: 0}
   mod:
-    nameVO: 
-    nameVF: 
+    mainTitle: 
+    secondaryTitle: 
     order: 0
     description: 
     category:
-      mainTitle: 
-      secondaryTitle: 
-      index: 0
-      page:
-        rid: -2
+      rid: -2
     actionType: 0
+    status: 0
   references:
     version: 2
     RefIds:
@@ -2436,7 +2470,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3508743882301515147}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -7615369811100608242}
+        m_TargetAssemblyTypeName: ModInfo, Assembly-CSharp
+        m_MethodName: ChangeStatus
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8487521091719844305
 GameObject:
   m_ObjectHideFlags: 0
